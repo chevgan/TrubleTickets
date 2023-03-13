@@ -22,3 +22,10 @@
     border: none;
     background-color: rgba(255, 255, 255, 0);
 }
+.openDescriptionTicket {
+    color: #233044;
+    word-wrap: break-word;
+}
+.textError {
+    color: rgba(155, 155, 155, 0.76);
+}

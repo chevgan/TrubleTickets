@@ -1,4 +1,5 @@
 const ADD_TICKETS = 'ADD_TICKETS';
+const UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION';
 
 let initialState = {
     ticket: [
@@ -13,9 +14,20 @@ let initialState = {
             statusTicket: false,
             id: 1,
             isHidden: true,
+            description: "Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren"
         },
     ],
-    notes: [
+    employeeName: [
+        {name: "Бакаенко А.", value: "bakaenko"},
+        {name: "Азимбеов Е.", value: "azimbeov"},
+        {name: "Чевган Д.", value: "chevgan"},
+        {name: "Чанышев И.", value: "chanyshev"},
+    ],
+    responsiblePerson: [
+        {name: "Дежурный NOC"},
+        {name: "Антон"},
+    ],
+    siteName: [
         {name: "6667 ALMATY", client: "K-cell"},
         {name: "KAZAKHTelecom", client: "Tele 2"},
     ]
@@ -27,6 +39,11 @@ export const ticketsReducer = (state = initialState, action) => {
                 ...state,
                 ticket: [...state.ticket, action.payload],
             }
+        case UPDATE_DESCRIPTION:
+            return {
+                ...state,
+                description: action.payload
+            };
         default:
             return state;
     }
