@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     font-size: 18px;
+
 }
 .listHidden {
     display: flex;
@@ -28,4 +29,11 @@
 }
 .textError {
     color: rgba(155, 155, 155, 0.76);
+}
+
+.button {
+    background-color: #1976D2;
+}
+.buttonScore {
+    display: grid;
 }

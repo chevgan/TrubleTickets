@@ -15,7 +15,7 @@ const TicketsInfo = () => {
     }));
     return (
         <div>
-            <Box  sx={{ flexGrow: 1 }}>
+            <Box  sx={{ flexGrow: 1}}>
                 <Grid item p={1} container spacing={2}>
                     <Grid item xs={1}>
                         <Item sx={{backgroundColor: '#b3e5fc'}}>Номер ТТ</Item>

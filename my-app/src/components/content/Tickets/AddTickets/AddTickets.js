@@ -9,12 +9,15 @@ import {
     Modal,
     Radio,
     RadioGroup,
-    Select
+    Select, Typography
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import AddIcon from '@mui/icons-material/Add';
 import s from "../Tickets.module.css"
+import {styled} from "@mui/material/styles";
+
 
 const AddTickets = () => {
     const dispatch = useDispatch(); // Получаем диспетчер Redux
@@ -30,11 +33,9 @@ const AddTickets = () => {
     const [error, setError] = useState(false); // Создаем состояние ошибки
 
 
-
-
     const handleInputChange = (event, newValue) => { //Обработчик изменения текста описания
         setTextDescription(newValue);
-        dispatch({ type: "UPDATE_DESCRIPTION", payload: event.target.value });
+        dispatch({type: "UPDATE_DESCRIPTION", payload: event.target.value});
     };
     const text = useSelector((state) => state.ticketsReducer.description);
     const handleValueChangeSiteName = (event, newValue) => {
@@ -43,11 +44,15 @@ const AddTickets = () => {
     const handleChangeEmployeeName = (event, newValue) => {
         setSelectedEmployeeName(newValue);
     }; // Обработчик изменения выбранного сотрудника
-    const handleChangeResponsiblePerson = (event, newValue) => {setSelectedResponsiblePerson(newValue);}; // Обработчик изменения выбранного ответсвенного
+    const handleChangeResponsiblePerson = (event, newValue) => {
+        setSelectedResponsiblePerson(newValue);
+    }; // Обработчик изменения выбранного ответсвенного
     const handleSubmit = (event) => {
         // Проверяем, заполнены ли обязательные поля
-        if (!selectedSiteName) {
+        if (!selectedSiteName || !selectedEmployeeName || !selectedResponsiblePerson) {
             setError(true)
+        } else {
+            setError(false)
         }
 
         event.preventDefault();
@@ -76,6 +81,7 @@ const AddTickets = () => {
         setOpen(!open);
     };
     const [open, setOpen] = useState(false);
+    ////Style
     const style = {
         position: 'absolute',
         top: '50%',
@@ -89,16 +95,57 @@ const AddTickets = () => {
         px: 4,
         pb: 3,
     };
+    const AddTicketButton = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 20,
+        padding: '6px 12px',
+        border: '1px solid',
+        color: 'white',
+        lineHeight: 1.5,
+        backgroundColor: '#0063cc',
+        borderColor: '#0063cc',
+        fontFamily: [
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(','),
+        '&:hover': {
+            backgroundColor: '#0069d9',
+            borderColor: '#0062cc',
+            boxShadow: 'none',
+        },
+        '&:active': {
+            boxShadow: 'none',
+            backgroundColor: '#0062cc',
+            borderColor: '#005cbf',
+        },
+        '&:focus': {
+            boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+        },
+    });
+    ////Style
     return (
         <div>
-            <Button onClick={handleToggleModal}>Добавить тикет</Button>
+            <div>
+                <AddTicketButton startIcon={<AddIcon style={{fontSize: "2rem"}}/>}
+                                 onClick={handleToggleModal}>Добавить
+                </AddTicketButton>
+            </div>
             <Modal
                 open={open}
                 onClose={handleToggleModal}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
             >
-                <Box sx={{...style, width: 400}}>
+                <Box sx={{...style, width: 500}}>
                     <form onSubmit={handleSubmit}>
                         <h2>Опишите заявку</h2>
 
@@ -109,7 +156,8 @@ const AddTickets = () => {
                                 value={selectedSiteName}
                                 onChange={handleValueChangeSiteName}
                                 renderInput={(params) => (
-                                    <TextField error={error && !selectedSiteName} {...params} label="Название БС" margin="normal"/>
+                                    <TextField error={error && !selectedSiteName} {...params} label="Название БС"
+                                               margin="normal"/>
                                 )}
                             />
 
@@ -122,7 +170,8 @@ const AddTickets = () => {
                                 value={selectedEmployeeName}
                                 onChange={handleChangeEmployeeName}
                                 renderInput={(params) => (
-                                    <TextField error={error && !selectedEmployeeName} {...params} label="ФИО Держурного" margin="normal" />
+                                    <TextField error={error && !selectedEmployeeName} {...params} label="ФИО Держурного"
+                                               margin="normal"/>
 
                                 )}
                             />
@@ -135,7 +184,8 @@ const AddTickets = () => {
                                 value={selectedResponsiblePerson}
                                 onChange={handleChangeResponsiblePerson}
                                 renderInput={(params) => (
-                                    <TextField error={error && !selectedResponsiblePerson} {...params} label="Отвественный" margin="normal" />
+                                    <TextField error={error && !selectedResponsiblePerson} {...params}
+                                               label="Отвественный" margin="normal"/>
 
                                 )}
                             />
@@ -144,7 +194,7 @@ const AddTickets = () => {
                         <div> {/*Описание проблемы*/}
                             <TextField
                                 id="outlined-multiline-flexible"
-                                label = "Описание проблеимы"
+                                label="Описание проблеимы"
                                 multiline
                                 maxRows={10}
                                 value={textDescription}
@@ -156,7 +206,11 @@ const AddTickets = () => {
                             />
                         </div>
                         <br/>
-                        <Button type="submit" variant="contained" color="primary" margin="normal">
+                        <Button
+                            disabled={error && !selectedSiteName || !selectedEmployeeName || !selectedResponsiblePerson}
+                            type="submit" variant="contained" color="primary" margin="normal"
+                            sx={{width: 500, height: 50}}
+                        >
                             Добавить
                         </Button>
                     </form>
