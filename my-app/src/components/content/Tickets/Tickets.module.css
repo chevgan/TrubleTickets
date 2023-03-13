@@ -1,0 +1,24 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    font-size: 18px;
+}
+.listHidden {
+    display: flex;
+    font-size: 20px;
+
+    background-color: antiquewhite;
+}
+
+.ticketOpen {
+    color: #1976D2;
+    font-size: 14px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.ticketClose {
+    color: #dc1313;
+    font-size: 14px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}

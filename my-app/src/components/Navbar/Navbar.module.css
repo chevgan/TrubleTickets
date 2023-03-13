@@ -1,0 +1,4 @@
+.navbar {
+    display: grid;
+    grid-area: navbar;
+}

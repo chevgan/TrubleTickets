@@ -1,0 +1,7 @@
+.ticketsInfo {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    font-weight: 600;
+    padding-bottom: 40px;
+    font-size: 17px;
+}
