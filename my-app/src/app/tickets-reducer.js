@@ -1,6 +1,7 @@
+import moment from 'moment';
+
 const ADD_TICKETS = 'ADD_TICKETS';
 const UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION';
-
 let initialState = {
     ticket: [
         {
@@ -14,7 +15,10 @@ let initialState = {
             statusTicket: false,
             id: 1,
             isHidden: true,
-            description: "Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren"
+            description: "Описание ",
+            diagnostics: "Диагностика ",
+            reason: "Причина ",
+            dateReceived: moment(''),
         },
     ],
     employeeName: [

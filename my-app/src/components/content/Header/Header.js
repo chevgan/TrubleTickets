@@ -1,7 +1,10 @@
-import s from "./Header.module.css"
+import React from 'react';
 let Header = () => {
-    return  (
-        <div className={s.header} >хедер</div>
-    )
+    return (
+        <div>
+            header and search
+        </div>
+    );
+
 }
 export default Header;

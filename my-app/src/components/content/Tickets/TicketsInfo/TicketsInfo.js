@@ -15,8 +15,8 @@ const TicketsInfo = () => {
     }));
     return (
         <div>
-            <Box  sx={{ flexGrow: 1}}>
-                <Grid item p={1} container spacing={2}>
+            <Box   sx={{ flexGrow: 1}}>
+                <Grid  item p={1} container spacing={2}>
                     <Grid item xs={1}>
                         <Item sx={{backgroundColor: '#b3e5fc'}}>Номер ТТ</Item>
                     </Grid>
@@ -27,7 +27,7 @@ const TicketsInfo = () => {
                         <Item sx={{backgroundColor: '#b3e5fc'}} >Клиент</Item>
                     </Grid>
                     <Grid item xs={1.5}>
-                        <Item sx={{backgroundColor: '#b3e5fc'}} >Дата</Item>
+                        <Item sx={{backgroundColor: '#b3e5fc'}} >Дата создания</Item>
                     </Grid>
                     <Grid item xs={1.5}>
                         <Item sx={{backgroundColor: '#b3e5fc'}} >Простой</Item>
@@ -38,7 +38,7 @@ const TicketsInfo = () => {
                     <Grid item xs={1.5}>
                         <Item sx={{backgroundColor: '#b3e5fc'}} >Ответсвенный</Item>
                     </Grid>
-                    <Grid item xs={1.5}>Статус</Grid>
+                    <Grid item xs={1}>Статус</Grid>
 
                 </Grid>
             </Box>

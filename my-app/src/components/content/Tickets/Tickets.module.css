@@ -17,6 +17,18 @@
     border: none;
     background-color: rgba(255, 255, 255, 0);
 }
+.ticket {
+    background-color: white;
+}
+
+.openTicket {
+    background-color: rgba(224, 232, 247, 0.47);
+    border-radius: 5px;
+}
+.openTicketTwo {
+    background-color: red;
+    border-radius: 5px;
+}
 .ticketClose {
     color: #dc1313;
     font-size: 14px;

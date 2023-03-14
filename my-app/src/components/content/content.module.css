@@ -1,14 +1,11 @@
 .content {
-    margin: 0 30px 0 30px;
     background-color: white;
     height: 100%;
-    padding-top: 20px;
+    padding: 0 30px 0 30px;
 
 }
 .addTickets {
     display: flex;
     flex-direction: row-reverse;
-
-    padding-top: 30px;
 
 }

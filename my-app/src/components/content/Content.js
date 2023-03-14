@@ -6,16 +6,15 @@ import {Divider} from "@mui/material";
 
 let Content = () => {
     return (
-        <div>
+        <div className={s.content}>
             <div className={s.addTickets}><AddTickets/></div>
             <Divider variant="fullWidth" sx={{margin: 5}}/>
-            <div className={s.content}>
+            <div>
                 <TicketsInfo/>
                 <Tickets/>
             </div>
         </div>
     )
-
 }
 
 export default Content;
