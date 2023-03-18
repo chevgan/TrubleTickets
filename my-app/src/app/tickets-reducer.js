@@ -1,11 +1,12 @@
 import moment from 'moment';
+import s from "../components/content/Tickets/Tickets.module.css";
 
 const ADD_TICKETS = 'ADD_TICKETS';
 const UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION';
 let initialState = {
     ticket: [
         {
-            numberTickets: 667,
+            id: 0,
             siteName: "6667 ALMATY",
             clientName: "K-cell",
             ticketData: "2023-03-10",
@@ -13,8 +14,6 @@ let initialState = {
             employeeName: "Данил Чевган",
             responsiblePerson: "Дежурный NOC",
             statusTicket: false,
-            id: 1,
-            isHidden: true,
             description: "Описание ",
             diagnostics: "Диагностика ",
             reason: "Причина ",
@@ -42,6 +41,7 @@ export const ticketsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ticket: [...state.ticket, action.payload],
+
             }
         case UPDATE_DESCRIPTION:
             return {
@@ -52,3 +52,4 @@ export const ticketsReducer = (state = initialState, action) => {
             return state;
     }
 }
+

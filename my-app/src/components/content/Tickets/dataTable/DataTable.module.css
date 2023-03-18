@@ -1,0 +1,21 @@
+.centre {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(224, 232, 247, 0.47);
+    padding: 20px;
+}
+.data-table-container {
+    position: relative; /* установка относительного позиционирования */
+    margin-bottom: 1rem; /* отступ между input и таблицей */
+}
+
+.data-table-container label {
+    position: absolute; /* установка абсолютного позиционирования */
+    top: -1.5rem; /* позиционирование над колонкой */
+}
+
+.data-table-container input {
+    position: absolute; /* установка абсолютного позиционирования */
+    top: -1rem; /* позиционирование над колонкой */
+    left: 4.5rem; /* отступ от левой границы контейнера */
+}

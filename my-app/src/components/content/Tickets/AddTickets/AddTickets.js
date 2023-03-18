@@ -77,7 +77,6 @@ const AddTickets = () => {
 
 
 
-
     const [selectedDate, setSelectedDate] = useState(moment().tz('Asia/Almaty'));
     const [state, setState] = useState({
         selectedSiteName: null, // Устанавливаем состояние выбранной БС
@@ -135,25 +134,24 @@ const AddTickets = () => {
         setSelectedDate(date);
     };//Обработчик изменения даты и времени
 
-
     const handleSubmit = (event) => {
 
         event.preventDefault();
-        const today = new Date().toLocaleString('ru-RU',{ timeZone: 'GMT' }).substring(0, 20);
+        const today = selectedDate
         const descriptionText = state.textDescription || <div className={s.textError}>Описания нет</div>;
         const textDiagnostics = state.textDiagnostics || <div className={s.textError}>Диагностики нет</div>;
         const textReason = state.textReason || <div className={s.textError}>Причины нет</div>;
 
+
         const newTicket = {
-            numberTickets: newNumberTickets,
+            id: newNumberTickets,
             siteName: state.selectedSiteName.name,
             clientName: state.selectedSiteName.client,
-            ticketData: today,
+            ticketData: moment(today).format("DD.MM.YYYY"),
             downTime: "null",
             employeeName: state.selectedEmployeeName.name,
             responsiblePerson: state.selectedResponsiblePerson.name,
             statusTicket: false,
-            id: Date.now(),
             isHidden: true,
             description: descriptionText,
             diagnostics: textDiagnostics,
