@@ -18,6 +18,7 @@ let initialState = {
             diagnostics: "Диагностика ",
             reason: "Причина ",
             dateReceived: moment(''),
+            editable: true
         },
     ],
     employeeName: [
@@ -31,8 +32,8 @@ let initialState = {
         {name: "Антон"},
     ],
     siteName: [
-        {name: "6667 ALMATY", client: "K-cell"},
-        {name: "KAZAKHTelecom", client: "Tele 2"},
+        {name: "6667 ALMATY", client: "K-cell", editable: true},
+        {name: "KAZAKHTelecom", client: "Tele 2", editable: true},
     ]
 }
 export const ticketsReducer = (state = initialState, action) => {

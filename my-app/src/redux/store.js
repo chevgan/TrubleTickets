@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {ticketsReducer} from "./tickets-reducer";
+import {userReducer} from "./user-reducer";
 
 const rootReducer = combineReducers({
-    ticketsReducer: ticketsReducer
+    ticketsReducer: ticketsReducer,
+    user: userReducer,
 })
 
 
