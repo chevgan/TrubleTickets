@@ -1,6 +1,7 @@
 import moment from 'moment';
 import s from "../components/content/Tickets/Tickets.module.css";
 
+
 const ADD_TICKETS = 'ADD_TICKETS';
 const UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION';
 let initialState = {
@@ -17,8 +18,9 @@ let initialState = {
             description: "Описание ",
             diagnostics: "Диагностика ",
             reason: "Причина ",
-            dateReceived: moment(''),
-            editable: true
+            dateReceived: "",
+            /*dateReceived: moment(''),*/
+            editable: true,
         },
     ],
     employeeName: [
@@ -53,4 +55,5 @@ export const ticketsReducer = (state = initialState, action) => {
             return state;
     }
 }
+
 

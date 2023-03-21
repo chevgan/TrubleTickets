@@ -9,6 +9,7 @@ html, body {
           "navbar header"
           "navbar contenet";
   grid-template-columns: 2fr 10fr;
+  grid-template-rows: auto 1fr;
   height: 100vh;
   width: 100%;
 }

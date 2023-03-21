@@ -138,9 +138,12 @@ const AddTickets = () => {
 
         event.preventDefault();
         const today = selectedDate
-        const descriptionText = state.textDescription || <div className={s.textError}>Описания нет</div>;
+        const descriptionText = state.textDescription;
+        const textDiagnostics = state.textDiagnostics;
+        const textReason = state.textReason;
+/*        const descriptionText = state.textDescription || <div className={s.textError}>Описания нет</div>;
         const textDiagnostics = state.textDiagnostics || <div className={s.textError}>Диагностики нет</div>;
-        const textReason = state.textReason || <div className={s.textError}>Причины нет</div>;
+        const textReason = state.textReason || <div className={s.textError}>Причины нет</div>;*/
 
 
         const newTicket = {
@@ -156,7 +159,7 @@ const AddTickets = () => {
             description: descriptionText,
             diagnostics: textDiagnostics,
             reason: textReason,
-            dateReceived: selectedDate,
+            dateReceived: "selectedDate",
         };
         console.log("===================");
         console.log({newTicket});
