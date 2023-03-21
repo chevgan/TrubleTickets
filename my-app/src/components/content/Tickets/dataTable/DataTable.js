@@ -1,7 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
-import { Select } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
+
 
 
 
@@ -21,7 +20,7 @@ const columns = [
 const DataTableTickets = () => {
     const ticketsData = useSelector(state => state.ticketsReducer.ticket);
     return (
-        <div style={{ height: 300, width: '100%' }}>
+        <div style={{ height: 500, width: '100%' }}>
             <DataGrid editMode="row" rows={ticketsData} columns={columns} />
         </div>
     );

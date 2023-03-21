@@ -1,7 +1,8 @@
 import React from 'react';
+import s from "./Header.module.css"
 let Header = () => {
     return (
-        <div>
+        <div className={s.header}>
             header and search
         </div>
     );

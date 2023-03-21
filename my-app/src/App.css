@@ -9,7 +9,8 @@ html, body {
           "navbar header"
           "navbar contenet";
   grid-template-columns: 2fr 10fr;
-  height: 100%;
+  height: 100vh;
+  width: 100%;
 }
 
 .app-wrapper-content {

@@ -6,12 +6,11 @@ import {Divider} from "@mui/material";
 import DataTableTickets from "./Tickets/dataTable/DataTable";
 import { Navigate } from "react-router-dom";
 import {useAuth} from "../../hook/use-auth";
-import {removeUser} from "../../redux/user-reducer";
-import {useDispatch} from "react-redux";
+
 
 let Content = () => {
-    const dispatch = useDispatch();
-    const {isAuth, email} = useAuth()
+
+    const {isAuth} = useAuth()
     return isAuth ? (
         <div className={s.content}>
 
@@ -20,7 +19,6 @@ let Content = () => {
             <div>
                 {/*<Tickets/> {"Первая версия нативная"}*/}
                 <DataTableTickets/>
-                <button onClick={() => dispatch(removeUser())}>Log out from {email}</button>
             </div>
         </div>
     ) : (
